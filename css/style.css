@@ -1,0 +1,23 @@
+.container {
+    border: 2px solid cornflowerblue;
+}
+
+#game-container {
+    width:70%;
+    border-color: red;
+
+}
+
+#score-container {
+    width: 30%;
+    border-color: green;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.btn-sq-lg {
+    width: 150px ;
+    height: 150px ;
+}
