@@ -2,10 +2,15 @@ import Card from "./card/Card.js";
 import CardView from "./card/CardView.js";
 import CardController from "./card/CardController.js";
 
+
+let gameContainer = document.getElementById("game-container");
+
 for (let i=0; i<10; i++) {
     let card = new Card();
-    let cardView = new CardView(card);
-    let cardController = new CardController(card, cardView);
+    let cardController = new CardController(card);
+    let cardView = new CardView(cardController);
+
+    gameContainer.appendChild(cardView.exteriorView)
 }
 
 
