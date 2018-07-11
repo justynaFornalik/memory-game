@@ -29,6 +29,6 @@ export default class CardView {
     }
 
     registerEventListeners() {
-        this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.printId.bind(this.cardController))
+        this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.flip.bind(this.cardController))
     }
 }
