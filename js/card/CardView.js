@@ -3,6 +3,7 @@ export default class CardView {
         this.cardController = cardController;
         this.exteriorView = this.createExteriorView();
         this.interiorView = this.createInteriorView();
+        this.registerEventListeners();
     }
 
     createExteriorView() {
@@ -25,5 +26,9 @@ export default class CardView {
     renderExteriorView(templateContent) {
         templateContent.querySelector(".card").setAttribute("id", this.cardController.card.id);
         return templateContent;
+    }
+
+    registerEventListeners() {
+
     }
 }
