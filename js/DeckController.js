@@ -22,13 +22,7 @@ class DeckController {
             uncoveredCards[1].isCovered = true;
 
         }
-
-        console.log(this.deck);
-
-
     }
-
-
 }
 
 export let deck = new DeckController();
