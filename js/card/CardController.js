@@ -1,6 +1,7 @@
 export default class CardController {
-    constructor(card, cardView) {
+    //jak zrobić aby cardController miał dostęp do View?
+
+    constructor(card) {
         this.card = card;
-        this.cardView = cardView;
     }
 }
