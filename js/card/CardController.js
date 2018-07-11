@@ -1,4 +1,5 @@
 import {deck} from "../DeckController.js";
+import {photoDispenser} from "../helper/PhotosDispenser.js";
 
 export default class CardController {
     //jak zrobić aby cardController miał dostęp do View?
@@ -6,6 +7,7 @@ export default class CardController {
     constructor(card) {
         this.card = card;
         deck.add(this.card);
+        photoDispenser.pickPhoto(this.card);
     }
 
     flip() {
@@ -13,3 +15,4 @@ export default class CardController {
         deck.checkIfTwoUncovered();
     }
 }
+
