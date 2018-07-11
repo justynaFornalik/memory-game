@@ -10,8 +10,8 @@ export default class Card {
         return '_' + Math.random().toString(36).substr(2, 9);
     }
 
-    set image(image) {
-        this.image = image;
+    setImage(photo) {
+        this.image = photo;
     }
 }
 
