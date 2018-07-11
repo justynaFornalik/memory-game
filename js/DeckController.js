@@ -8,7 +8,7 @@ class DeckController {
         this.deck.push(card);
     }
 
-    checkIfPair() {
+    checkIfTwoUncovered() {
         let uncoveredCards = [];
 
         for (let i = 0; i < this.deck.length; i++) {
