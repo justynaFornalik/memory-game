@@ -8,7 +8,7 @@ export default class CardView {
 
     createExteriorView() {
         if ("content" in document.createElement("template")) {
-            var templateElement = document.querySelector("#card"); //HTMLTemplateElement, HTMLTemplateElement.content - DocumentFragment
+            var templateElement = document.querySelector("#cardTemplate"); //HTMLTemplateElement, HTMLTemplateElement.content - DocumentFragment
             var templateContent = templateElement.content.cloneNode(true);
             return this.renderExteriorView(templateContent);
 
@@ -29,6 +29,6 @@ export default class CardView {
     }
 
     registerEventListeners() {
-
+        this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.printId.bind(this.cardController))
     }
 }
