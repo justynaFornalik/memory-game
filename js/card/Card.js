@@ -5,7 +5,7 @@ export default class Card {
     }
 
     getRandomId() {
-        return new Date().getUTCMilliseconds().toString();
+        return '_' + Math.random().toString(36).substr(2, 9);
     }
 }
 
