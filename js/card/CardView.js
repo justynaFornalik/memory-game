@@ -2,6 +2,7 @@ export default class CardView {
     constructor(cardController) {
         this.cardController = cardController;
         this.exteriorView = this.createExteriorView();
+        this.interiorView = this.createInteriorView();
     }
 
     createExteriorView() {
@@ -15,6 +16,10 @@ export default class CardView {
             // Find another way to add the rows to the table because
             // the HTML template element is not supported - TO DO!!!
         }
+    }
+
+    createInteriorView() {
+        return null;
     }
 
 }
