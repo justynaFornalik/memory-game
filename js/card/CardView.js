@@ -22,4 +22,8 @@ export default class CardView {
         return null;
     }
 
+    renderExteriorView(templateContent) {
+        templateContent.querySelector(".card").setAttribute("id", this.cardController.card.id);
+        return templateContent;
+    }
 }
