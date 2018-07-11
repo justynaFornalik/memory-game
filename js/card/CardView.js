@@ -7,9 +7,9 @@ export default class CardView {
 
     createExteriorView() {
         if ("content" in document.createElement("template")) {
-            var templateElement = $("card"); //HTMLTemplateElement, HTMLTemplateElement.content - DocumentFragment
+            var templateElement = document.querySelector("#card"); //HTMLTemplateElement, HTMLTemplateElement.content - DocumentFragment
             var templateContent = templateElement.content.cloneNode(true);
-            return this.render(templateContent);
+            return this.renderExteriorView(templateContent);
 
         } else {
             return null;
