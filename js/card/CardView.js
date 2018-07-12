@@ -9,7 +9,6 @@ export default class CardView {
     createExteriorView() {
         let elem = document.createElement('template');
         elem.innerHTML = this.renderExteriorView().trim();
-        document.getElementById("game-container").appendChild(elem.content.firstChild);
         return elem.content.firstChild;
     }
 
@@ -27,15 +26,12 @@ export default class CardView {
         </div>`;
     }
 
-    /*hide() {
-        let ex = this.exteriorView;
-        console.log(ex.children);
-        let sth = this.exteriorView.querySelector(".card");
-        console.log(this.exteriorView.querySelector(".card"));
-    }*/
+    hide() {
+        let ex = this.exteriorView.classList.add("hit");
+    }
 
     registerEventListeners() {
-        this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.flip.bind(this.cardController));
+        this.exteriorView.addEventListener("click", this.cardController.flip.bind(this.cardController));
     }
 
 }
