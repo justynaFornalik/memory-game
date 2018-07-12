@@ -16,7 +16,7 @@ class DeckController {
 
         for (let i = 0; i < this.deck.length; i++) {
             if (this.deck[i].isCovered === false) {
-                uncoveredCards.push(this.deck[i])
+                uncoveredCards.push(this.deck[i]);
             }
         }
 
@@ -27,8 +27,8 @@ class DeckController {
 
             if(this.ifMatched(card1, card2)) {
                 this.hitCounter++;
-                card1.isCovered = true;
-                card2.isCovered = true;
+                card1.cardView.hide();
+                card2.cardView.hide();
             } else {
                 card1.isCovered = true;
                 card2.isCovered = true;
