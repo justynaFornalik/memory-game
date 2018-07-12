@@ -2,6 +2,9 @@ class DeckController {
 
     constructor() {
         this.deck = [];
+        //czy lepszy global czy countery jako fieldy???
+        this.movesCounter = 0;
+        this.hitCounter = 0;
     }
 
     add(card) {
@@ -18,10 +21,23 @@ class DeckController {
         }
 
         if (uncoveredCards.length === 2) {
-            uncoveredCards[0].isCovered = true;
-            uncoveredCards[1].isCovered = true;
+            this.movesCounter++;
+            let card1 = uncoveredCards[0];
+            let card2 = uncoveredCards[1];
 
+            if(this.ifMatched(card1, card2)) {
+                this.hitCounter++;
+                card1.isCovered = true;
+                card2.isCovered = true;
+            } else {
+                card1.isCovered = true;
+                card2.isCovered = true;
+            }
         }
+    }
+
+    ifMatched(card1, card2) {
+        return card1.image === card2.image;
     }
 }
 
