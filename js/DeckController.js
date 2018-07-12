@@ -20,6 +20,7 @@ class DeckController {
         if (uncoveredCards.length === 2) {
             uncoveredCards[0].isCovered = true;
             uncoveredCards[1].isCovered = true;
+
         }
     }
 }
