@@ -7,34 +7,35 @@ export default class CardView {
     }
 
     createExteriorView() {
-        if ("content" in document.createElement("template")) {
-            var templateElement = document.querySelector("#cardTemplate"); //HTMLTemplateElement, HTMLTemplateElement.content - DocumentFragment
-            var templateContent = templateElement.content.cloneNode(true);
-            return this.renderExteriorView(templateContent);
-
-        } else {
-            return null;
-            // Find another way to add the rows to the table because
-            // the HTML template element is not supported - TO DO!!!
-        }
+        let elem = document.createElement('template');
+        elem.innerHTML = this.renderExteriorView().trim();
+        document.getElementById("game-container").appendChild(elem.content.firstChild);
+        return elem.content.firstChild;
     }
 
     createInteriorView() {
         return null;
     }
 
-    renderExteriorView(templateContent) {
-        templateContent.querySelector(".card").setAttribute("id", this.cardController.card.id);
-        return templateContent;
+    renderExteriorView() {
+        return `<div id="${this.cardController.card.id}" class="card">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <a href="#" class="btn btn-sq btn-primary">
+                    <i class="fa fa-question fa-5x"></i>
+                </a>
+            </div>
+        </div>`;
     }
 
-    hide() {
-        //console.log(this.exteriorView.querySelector(".card"));
-    }
+    /*hide() {
+        let ex = this.exteriorView;
+        console.log(ex.children);
+        let sth = this.exteriorView.querySelector(".card");
+        console.log(this.exteriorView.querySelector(".card"));
+    }*/
 
     registerEventListeners() {
         this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.flip.bind(this.cardController));
-        console.log(this.exteriorView.querySelector(".card"));
     }
 
 }
