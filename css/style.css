@@ -21,3 +21,7 @@
     width: 150px ;
     height: 150px ;
 }
+
+.hit {
+    visibility: hidden;
+}
