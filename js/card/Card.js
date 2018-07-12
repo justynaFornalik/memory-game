@@ -2,6 +2,7 @@ export default class Card {
 
     constructor() {
         this.id = this.getRandomId();
+        this.cardView = null;
         this.isCovered = true;
         this.image = "";
     }
@@ -12,6 +13,10 @@ export default class Card {
 
     setImage(photo) {
         this.image = photo;
+    }
+
+    setView(view) {
+        this.cardView = view;
     }
 }
 
