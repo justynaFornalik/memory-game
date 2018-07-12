@@ -28,7 +28,13 @@ export default class CardView {
         return templateContent;
     }
 
-    registerEventListeners() {
-        this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.flip.bind(this.cardController))
+    hide() {
+        //console.log(this.exteriorView.querySelector(".card"));
     }
+
+    registerEventListeners() {
+        this.exteriorView.querySelector(".card").addEventListener("click", this.cardController.flip.bind(this.cardController));
+        console.log(this.exteriorView.querySelector(".card"));
+    }
+
 }
