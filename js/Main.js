@@ -9,6 +9,7 @@ for (let i=0; i<10; i++) {
     let card = new Card();
     let cardController = new CardController(card);
     let cardView = new CardView(cardController);
+    card.setView(cardView);
 
     gameContainer.appendChild(cardView.exteriorView);
 }
