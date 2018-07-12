@@ -19,19 +19,17 @@ class DeckController {
                 uncoveredCards.push(this.deck[i]);
             }
         }
-
         if (uncoveredCards.length === 2) {
             this.movesCounter++;
             let card1 = uncoveredCards[0];
             let card2 = uncoveredCards[1];
+            card1.isCovered = true;
+            card2.isCovered = true;
 
             if(this.ifMatched(card1, card2)) {
                 this.hitCounter++;
                 card1.cardView.hide();
                 card2.cardView.hide();
-            } else {
-                card1.isCovered = true;
-                card2.isCovered = true;
             }
         }
     }
