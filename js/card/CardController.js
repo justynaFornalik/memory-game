@@ -10,9 +10,10 @@ export default class CardController {
         photoDispenser.pickPhoto(this.card);
     }
 
-    flip() {
+    uncover() {
         this.card.isCovered = false;
         this.card.cardView.uncover();
+
         deck.checkIfTwoUncovered();
     }
 }

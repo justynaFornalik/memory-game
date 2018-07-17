@@ -37,7 +37,7 @@ export default class CardView {
     }
 
     registerEventListeners() {
-        this.currentView.addEventListener("click", this.cardController.flip.bind(this.cardController));
+        this.currentView.addEventListener("click", this.cardController.uncover.bind(this.cardController));
     }
 
 }
