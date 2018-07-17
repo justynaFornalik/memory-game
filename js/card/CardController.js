@@ -14,7 +14,7 @@ export default class CardController {
         this.card.isCovered = false;
         this.card.cardView.uncover();
 
-        deck.checkIfTwoUncovered();
+        deck.checkCurrentSituationOnBoard(this.card);
     }
 }
 
