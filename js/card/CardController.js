@@ -12,6 +12,7 @@ export default class CardController {
 
     flip() {
         this.card.isCovered = false;
+        this.card.cardView.uncover();
         deck.checkIfTwoUncovered();
     }
 }
