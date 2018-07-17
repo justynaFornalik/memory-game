@@ -1,8 +1,7 @@
 export default class CardView {
     constructor(cardController) {
         this.cardController = cardController;
-        this.exteriorView = this.createExteriorView();
-        this.interiorView = this.createInteriorView();
+        this.currentView = this.createExteriorView();
         this.registerEventListeners();
     }
 
@@ -11,27 +10,34 @@ export default class CardView {
         elem.innerHTML = this.renderExteriorView().trim();
         return elem.content.firstChild;
     }
-
-    createInteriorView() {
-        return null;
-    }
+    //refactor - mieć jedno createView, ale przekazywać jej różną funkcję renderowania this.render().trim();
 
     renderExteriorView() {
-        return `<div id="${this.cardController.card.id}" class="card">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <a href="#" class="btn btn-sq btn-primary">
-                    <i class="fa fa-question fa-5x"></i>
-                </a>
-            </div>
-        </div>`;
+        return `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div id="${this.cardController.card.id}" class="card">
+                        <a href="#" class="btn btn-sq btn-primary">
+                            <div class="cardContent">
+                                <i class="fa fa-question fa-5x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>`;
     }
 
     hide() {
-        let ex = this.exteriorView.classList.add("hit");
+       this.currentView.querySelector(".card").classList.add("hit");
+    }
+
+    uncover() {
+        this.currentView.querySelector(".cardContent").innerHTML = `<img src=\"${this.cardController.card.image}\">`;
+    }
+
+    cover() {
+        this.currentView.querySelector(".cardContent").innerHTML = "<i class=\"fa fa-question fa-5x\"></i>";
     }
 
     registerEventListeners() {
-        this.exteriorView.addEventListener("click", this.cardController.flip.bind(this.cardController));
+        this.currentView.addEventListener("click", this.cardController.flip.bind(this.cardController));
     }
 
 }
