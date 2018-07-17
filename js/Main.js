@@ -11,5 +11,5 @@ for (let i=0; i<10; i++) {
     let cardView = new CardView(cardController);
     card.setView(cardView);
 
-    gameContainer.appendChild(cardView.exteriorView); //po appendowaniu nie ma exterior view ale document fragment
+    gameContainer.appendChild(cardView.currentView);
 }
