@@ -2,7 +2,7 @@ class DeckController {
 
     constructor() {
         this.deck = [];
-        //czy lepszy global czy countery jako fieldy???
+        this.uncoveredCards = [];
         this.movesCounter = 0;
         this.hitCounter = 0;
     }
@@ -11,34 +11,49 @@ class DeckController {
         this.deck.push(card);
     }
 
-    checkIfTwoUncovered() {
-        let uncoveredCards = [];
+    checkCurrentSituationOnBoard(card) {
+        this.uncoveredCards.push(card);
 
-        for (let i = 0; i < this.deck.length; i++) {
-            if (this.deck[i].isCovered === false) {
-                uncoveredCards.push(this.deck[i]);
-            }
-        }
+        let card1 = this.uncoveredCards[0];
+        let card2 = this.uncoveredCards[1];
 
-        if (uncoveredCards.length === 2) {
-            this.movesCounter++;
-            let card1 = uncoveredCards[0];
-            let card2 = uncoveredCards[1];
-            card1.isCovered = true;
-            card2.isCovered = true;
+        if (this.uncoveredCards.length === 2) {
+            this.handleTwoUncoveredCards(card1, card2);
 
-            if(this.ifMatched(card1, card2)) {
-                this.hitCounter++;
-                card1.cardView.hide();
-                card2.cardView.hide();
-            } else {
-                setTimeout(function(){
-                    card1.cardView.cover();
-                    card2.cardView.cover();
-                }, 1000);
-            }
+        } else if (this.uncoveredCards.length === 3) {
+            this.handleThreeUncoveredCards(card1, card2)
         }
     }
+
+    handleTwoUncoveredCards(card1, card2) {
+        this.movesCounter++;
+
+        if(this.ifMatched(card1, card2)) {
+            this.hitCounter++;
+            setTimeout(() => {
+                card1.cardView.hide();
+                card2.cardView.hide()
+            }, 2000);
+
+            this.uncoveredCards = [];
+        }
+    }
+
+    handleThreeUncoveredCards(card1, card2) {
+        card1.cardView.cover();
+        card2.cardView.cover();
+        this.uncoveredCards.splice(0,2);
+    }
+
+
+// → ilość odsłoniętych kart:
+//         jedna - to nic się nie dzieje,
+//     jeżeli dwie:
+//         jeśli jest match -> zniknij,
+//     jeżeli nie ma -> czekaj na trzecią kartę
+//     jeśli trzy:
+//         zakryj wszystkie karty oprócz ostatniej - jak zorientować się, która jest ostatnia?
+
 
     ifMatched(card1, card2) {
         return card1.image === card2.image;
