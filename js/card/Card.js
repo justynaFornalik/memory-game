@@ -3,7 +3,6 @@ export default class Card {
     constructor() {
         this.id = this.getRandomId();
         this.cardView = null;
-        this.isCovered = true;
         this.image = "";
     }
 
