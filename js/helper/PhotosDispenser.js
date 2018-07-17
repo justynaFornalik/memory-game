@@ -1,7 +1,9 @@
 class PhotosDispenser {
 
     constructor() {
-        this.photos = ["test1", "test1", "test2", "test2", "test3", "test3", "test4", "test4", "test5", "test5"];
+        this.photos = ["https://http.cat/100", "https://http.cat/100", "https://http.cat/404", "https://http.cat/404",
+            "https://http.cat/101", "https://http.cat/101", "https://http.cat/405", "https://http.cat/405",
+            "https://http.cat/426", "https://http.cat/426"];
     }
 
     pickPhoto(card) {
