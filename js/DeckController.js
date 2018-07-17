@@ -19,6 +19,7 @@ class DeckController {
                 uncoveredCards.push(this.deck[i]);
             }
         }
+
         if (uncoveredCards.length === 2) {
             this.movesCounter++;
             let card1 = uncoveredCards[0];
@@ -30,6 +31,11 @@ class DeckController {
                 this.hitCounter++;
                 card1.cardView.hide();
                 card2.cardView.hide();
+            } else {
+                setTimeout(function(){
+                    card1.cardView.cover();
+                    card2.cardView.cover();
+                }, 1000);
             }
         }
     }
