@@ -25,3 +25,12 @@
 .hit {
     visibility: hidden;
 }
+
+.covered {
+    display: none;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+}
