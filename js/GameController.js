@@ -1,10 +1,11 @@
-class DeckController {
+import {storage} from "./storage/Storage.js";
+import {scoreHelper} from "./helper/ScoreHelper.js";
+
+class GameController {
 
     constructor() {
         this.deck = [];
         this.uncoveredCards = [];
-        this.movesCounter = 0;
-        this.hitCounter = 0;
     }
 
     add(card) {
@@ -20,6 +21,7 @@ class DeckController {
         if (this.uncoveredCards.length === 2) {
             this.handleTwoUncoveredCards(card1, card2);
             if(this.checkIfFinished()) {
+                scoreHelper.handleScore();
             }
 
         } else if (this.uncoveredCards.length === 3) {
@@ -28,10 +30,10 @@ class DeckController {
     }
 
     handleTwoUncoveredCards(card1, card2) {
-        this.movesCounter++;
+        scoreHelper.increaseMoves();
 
         if(this.ifMatched(card1, card2)) {
-            this.hitCounter++;
+            scoreHelper.increaseHits();
             setTimeout(() => {
                 card1.cardView.hide();
                 card2.cardView.hide()
@@ -48,22 +50,12 @@ class DeckController {
     }
 
     checkIfFinished() {
-        return (this.deck.length)/2 === this.hitCounter;
+        return (this.deck.length)/2 === scoreHelper.hits;
     }
-
-
-// → ilość odsłoniętych kart:
-//         jedna - to nic się nie dzieje,
-//     jeżeli dwie:
-//         jeśli jest match -> zniknij,
-//     jeżeli nie ma -> czekaj na trzecią kartę
-//     jeśli trzy:
-//         zakryj wszystkie karty oprócz ostatniej - jak zorientować się, która jest ostatnia?
-
 
     ifMatched(card1, card2) {
         return card1.image === card2.image;
     }
 }
 
-export let deck = new DeckController();
+export let deck = new GameController();
