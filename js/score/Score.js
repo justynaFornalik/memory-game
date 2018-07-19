@@ -2,7 +2,7 @@ export default class Score {
 
     constructor() {
         this._rank = null;
-        this._score = null;
+        this._points = null;
         this._player = null;
         this._scoreView = null;
     }
@@ -13,8 +13,8 @@ export default class Score {
         return score;
     }
 
-    set score(value) {
-        this._score = value;
+    set points(value) {
+        this._points = value;
     }
 
     set rank(value) {
