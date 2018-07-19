@@ -19,6 +19,8 @@ class DeckController {
 
         if (this.uncoveredCards.length === 2) {
             this.handleTwoUncoveredCards(card1, card2);
+            if(this.checkIfFinished()) {
+            }
 
         } else if (this.uncoveredCards.length === 3) {
             this.handleThreeUncoveredCards(card1, card2)
@@ -43,6 +45,10 @@ class DeckController {
         card1.cardView.cover();
         card2.cardView.cover();
         this.uncoveredCards.splice(0,2);
+    }
+
+    checkIfFinished() {
+        return (this.deck.length)/2 === this.hitCounter;
     }
 
 
