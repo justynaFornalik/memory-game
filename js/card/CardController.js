@@ -1,4 +1,4 @@
-import {deck} from "../DeckController.js";
+import {deck} from "../GameController.js";
 import {photoDispenser} from "../helper/PhotosDispenser.js";
 
 export default class CardController {
