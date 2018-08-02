@@ -1,4 +1,4 @@
-import Score from "../score/Score.js";
+const Score = require("../score/Score.js");
 
 class Storage {
     constructor(){
@@ -30,4 +30,4 @@ class Storage {
     }
 }
 
-export let storage = new Storage();
+module.exports = new Storage();

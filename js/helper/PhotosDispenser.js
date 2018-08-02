@@ -13,4 +13,5 @@ class PhotosDispenser {
     }
 }
 
-export let photoDispenser = new PhotosDispenser();
+// export let photoDispenser = new PhotosDispenser();
+module.exports = new PhotosDispenser();

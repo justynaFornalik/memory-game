@@ -1,5 +1,5 @@
-import {storage} from "./storage/Storage.js";
-import {scoreHelper} from "./helper/ScoreHelper.js";
+const storage = require("./storage/Storage.js");
+const scoreHelper = require("./helper/ScoreHelper.js");
 
 class GameController {
 
@@ -58,4 +58,4 @@ class GameController {
     }
 }
 
-export let deck = new GameController();
+module.exports = new GameController();

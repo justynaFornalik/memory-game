@@ -1,5 +1,7 @@
-export default class ScoreView {
+class ScoreView {
     constructor(scoreController) {
         this.scoreController = scoreController;
     }
 }
+
+module.exports = ScoreView;

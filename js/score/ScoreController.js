@@ -1,4 +1,4 @@
-export default class ScoreController {
+class ScoreController {
     constructor(score) {
         this.score = score;
     }
@@ -13,3 +13,5 @@ export default class ScoreController {
         this.score.points = points;
     }
 }
+
+module.exports = ScoreController;

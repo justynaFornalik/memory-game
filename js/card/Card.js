@@ -1,4 +1,4 @@
-export default class Card {
+class Card {
 
     constructor() {
         this.id = this.getRandomId();
@@ -19,3 +19,4 @@ export default class Card {
     }
 }
 
+module.exports = Card;

@@ -1,6 +1,6 @@
-import ScoreView from "../score/ScoreView.js";
-import Score from "../score/Score.js";
-import ScoreController from "../score/ScoreController.js";
+const ScoreView = require("../score/ScoreView.js");
+const Score = require("../score/Score.js");
+const ScoreController = require("../score/ScoreController.js");
 
 class ScoreHelper {
     constructor() {
@@ -35,4 +35,4 @@ class ScoreHelper {
     }
 }
 
-export let scoreHelper = new ScoreHelper();
+module.exports = new ScoreHelper();

@@ -1,4 +1,4 @@
-export default class CardView {
+class CardView {
     constructor(cardController) {
         this.cardController = cardController;
         this.currentView = this.createExteriorView();
@@ -41,3 +41,5 @@ export default class CardView {
     }
 
 }
+
+module.exports = CardView;

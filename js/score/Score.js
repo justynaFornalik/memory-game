@@ -1,4 +1,4 @@
-export default class Score {
+class Score {
 
     constructor() {
         this._rank = null;
@@ -29,3 +29,5 @@ export default class Score {
         this._scoreView = value;
     }
 }
+
+module.exports = Score;

@@ -1,7 +1,7 @@
-import {deck} from "../GameController.js";
-import {photoDispenser} from "../helper/PhotosDispenser.js";
+const deck = require("../GameController.js");
+const photoDispenser = require("../helper/PhotosDispenser.js");
 
-export default class CardController {
+class CardController {
     //jak zrobić aby cardController miał dostęp do View?
 
     constructor(card) {
@@ -18,3 +18,4 @@ export default class CardController {
     }
 }
 
+module.exports = CardController;
